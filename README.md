@@ -13,7 +13,9 @@ Quick start
 
 1. Pip install:
 
-    $ pip install git://github.com/fuzz-productions/bib.git#egg=Bib
+   ```
+   $ pip install git://github.com/fuzz-productions/bib.git#egg=Bib
+   ```
 
 2. Add to requirements.txt:
 
@@ -56,13 +58,17 @@ Quick start
     API_VERSION = 'v1.0'
     ```
 
-Then in your `urls.py`
+   Then in your `urls.py`
 
-    url(r"^%s/articles/(?P<article_id>.+)/?" % settings.API_VERSION, views.article)
+   ```
+   url(r"^%s/articles/(?P<article_id>.+)/?" % settings.API_VERSION, views.article)
+   ```
 
-Or if you're using Django Rest Framework's router:
+   Or if you're using Django Rest Framework's router:
 
-    router.register(r"%s/articles/?" % settings.API_VERSION, views.ArticleViewSet)
+   ```
+   router.register(r"%s/articles/?" % settings.API_VERSION, views.ArticleViewSet)
+   ```
 
 8. Run bib migrations: `./manage.py migrate`
 
