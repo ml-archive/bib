@@ -7,12 +7,7 @@ Bib is a simple Django app to log all request made to the server and responses s
 
 <img src="https://raw.githubusercontent.com/fuzz-productions/bib/master/bib/static/img/fuzzbib.png" width=150px/>
 
-
-To activate:
-
-    $ source venv/bin/activate
-
-Quick start
+Quick start to Implement Existing Project
 -----------
 
 1. Pip install:
@@ -78,9 +73,11 @@ Quick start
 
 9. After hitting the API a few times, visit http://localhost:8000/bib/ to see all requests and responses.
 
+**Note:** In settings, make sure that `debug=True`. Be sure to turn debug off in production or else your database will be bloated with Bib objects.
 
 TO DOs
 -----------
 
 * Render request headers
 * Finish Test App test suite
+* Make sure pep8 compliant
