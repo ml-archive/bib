@@ -2,7 +2,11 @@
 BIB
 =====
 
+
 Bib is a simple Django app to log all request made to the server and responses sent from the server.
+
+<img src="https://raw.githubusercontent.com/fuzz-productions/bib/master/bib/static/img/fuzzbib.png" width=150px/>
+
 
 To activate:
 
