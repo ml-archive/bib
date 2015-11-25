@@ -1,0 +1,58 @@
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery=1 %}
+{% block extrahead %}
+<link rel="shortcut icon" href="{% static 'img/fuzzbib.png' %}" />
+
+<!-- Global CSS -->
+<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href="{% static 'css/bib.css' %}" rel="stylesheet"/>
+
+{% endblock %}
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <img src="{% static 'img/fuzzbib.png' %}" height="60px"> Bib: Catching your spills since 2015.
+    </div>
+  </div>
+</nav>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <p>
+      <strong><a href="{% url 'index' %}">← BACK</a></strong>
+    </p>
+    <p>
+      Sent at: {{ bib.sent_at }} <br />
+      Request type: {{ bib.request_type }} <br />
+      Sent from: {{ bib.request_origin }} <br />
+      Path: {{ bib.request_path }} <br />
+      Status: {{ bib.response_code }}
+    </p>
+
+    <p>
+      <h4>REQUEST BODY:</h4><br />
+      <pre>
+        {{ bib.request_body }}
+      </pre>
+    </p>
+    <p>
+      <h4>RESPONSE:</h4><br />
+      {% if bib.response_code == '500' %}
+      <div class="bib-error-html">
+        {{ bib.response_data | safe }}
+      </div>
+      {% else %}
+      <pre>
+        {{ bib.response_data }}
+      </pre>
+      {% endif %}
+    </p>
+    <p>
+      <strong><a href="{% url 'index' %}">← BACK</a></strong>
+    </p>
+
+  </div>
+  <div class="col-md-2"></div>
+</div>

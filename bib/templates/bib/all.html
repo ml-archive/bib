@@ -1,0 +1,78 @@
+{% load staticfiles %}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery=1 %}
+{% block extrahead %}
+    <link rel="shortcut icon" href="{% static 'img/fuzzbib.png' %}" />
+
+    <!-- Global CSS -->
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href="{% static 'css/bib.css' %}" rel="stylesheet"/>
+{% endblock %}
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        <img src="{% static 'img/fuzzbib.png' %}" height="60px">
+        Bib: Catching your spills since 2015.
+    </div>
+  </div>
+</nav>
+
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+
+    <table class="table table-striped all-bib">
+        {% for bib in bibs %}
+        <tr><td>
+        <div class="accordion" id="accordion{{bib.pk}}">
+          <div class="accordion-group">
+            {% if bib.response_code|slice:":1" == '2' %}
+            <div class="accordion-heading success">
+            {% elif bib.response_code|slice:":1" == '4' %}
+            <div class="accordion-heading warning">
+            {% elif bib.response_code|slice:":1" == '5' %}
+            <div class="accordion-heading danger">
+            {% endif %}
+              <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion{{bib.pk}}" href="#collapse{{bib.pk}}">
+                {{ bib }}
+              </a>
+            </div>
+            <div id="collapse{{bib.pk}}" class="accordion-body collapse">
+              <div class="accordion-inner">
+                <p>
+                  <h4>REQUEST BODY:</h4><br />
+                  <pre>
+                      {{ bib.request_body }}
+                  </pre>
+                </p>
+                <p>
+                  <h4>RESPONSE:</h4><br />
+                  {% if bib.response_code == '500' %}
+                  <pre>
+                      <a href="{% url 'detail' bib.pk %}">View detail page to see render response.</a>
+                  </pre>
+                  {% else %}
+                  <pre>
+                      {{ bib.response_data }}
+                  </pre>
+                  {% endif %}
+                </p>
+                <p>
+                  <strong><a href="{% url 'detail' bib.pk %}">VIEW DETAIL →</a></strong>
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+    </td></tr>
+            
+        {% endfor %}
+
+    </table>
+  </div>
+  <div class="col-md-2"></div>
+</div>
+

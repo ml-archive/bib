@@ -1,0 +1,34 @@
+.all-bib {
+	border: 1px solid #ddd;
+}
+
+.success {
+	background-color: #dff0d8 !important;
+}
+
+.warning {
+	background-color: #fcf8e3 !important;
+}
+
+.danger {
+	background-color: #f2dede !important;
+}
+
+.bib-error-html {
+	width: 100%;
+	overflow: auto;
+	border: 1px solid #000;
+}
+
+h4 {
+	margin: 0 !important;
+	padding: 15px 0 0 !important;
+}
+
+pre {
+	width: 922px;
+}
+
+.navbar-header {
+	font-family: 'Pacifico', cursive;
+}
