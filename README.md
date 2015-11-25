@@ -13,12 +13,14 @@ Quick start
 
 1. Pip install:
 
-    $ pip install git+ssh://git@gitlab.fuzzhq.com/web-modules/bib.git
+    $ pip install git://github.com/fuzz-productions/bib.git#egg=Bib
 
 2. Add to requirements.txt:
 
+    ```
     django-bootstrap3==6.2.2
-    -e git+ssh://git@gitlab.fuzzhq.com/web-modules/bib.git#egg=Bib
+    -e git://github.com/fuzz-productions/bib.git#egg=Bib
+    ```
 
 3. Add "bootstrap3" and "bib" to your INSTALLED_APPS setting like this:
 
