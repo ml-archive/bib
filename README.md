@@ -78,13 +78,12 @@ Quick start to Implement Existing Project
 TO DOs
 -----------
 
-
+* Support for passing in a device ID to allow for a list view specific to one device
 * Dashboard breakdown by status codes 
 * Ability to query for specific events
 * Events collated by session, user, request
 * Fixed links to specific logs 
 * Accordian UI doesn't deal with back very well maybe scrap the whole concept
-
 * Render request headers
 * Finish Test App test suite
 * Make sure pep8 compliant
